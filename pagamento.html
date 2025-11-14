@@ -51,22 +51,20 @@ footer{ margin-top:40px; padding:12px; border-top:2px solid #78b6ff; color:#bcd8
 <script>
 function copyPIX(){navigator.clipboard.writeText('+5521975639078');alert('PIX copiado!');}
 
-// Recebe os itens via URL
-const params = new URLSearchParams(window.location.search);
+// Recebe os itens do LocalStorage
 let cart = [];
-if(params.get('itens')){
-  cart = JSON.parse(params.get('itens'));
-}
+const saved = localStorage.getItem('kwmcCart');
+if(saved) cart = JSON.parse(saved);
 
 const list = document.getElementById('item-list');
 let total = 0;
 
-// Atualiza a lista e total
+// Atualiza lista e total
 function updateCart(){
   list.innerHTML='';
   total=0;
   cart.forEach((item,i)=>{
-    const li = document.createElement('li');
+    const li=document.createElement('li');
     li.className='cart-item';
     li.innerHTML = `${item.name} — R$ ${item.price.toFixed(2)} <span class="remove-btn" onclick="removeItem(${i})">Remover</span>`;
     list.appendChild(li);
@@ -75,9 +73,10 @@ function updateCart(){
   document.getElementById('total-value').textContent=total.toFixed(2);
 }
 
-// Remove item do carrinho
+// Remove item e atualiza LocalStorage
 function removeItem(index){
   cart.splice(index,1);
+  localStorage.setItem('kwmcCart', JSON.stringify(cart));
   updateCart();
 }
 
