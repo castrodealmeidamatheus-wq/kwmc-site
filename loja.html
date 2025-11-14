@@ -18,7 +18,7 @@ p.lead{ opacity:0.9; margin-bottom:18px; }
 .vip img{ width:160px; height:160px; object-fit:cover; border-radius:12px; filter:drop-shadow(0 0 12px #8fc8ff); }
 .vip-title{ font-size:22px; margin:12px 0; text-shadow:0 0 8px #78b6ff; }
 .vip-list{ text-align:left; margin:10px auto 0; max-width:240px; line-height:1.5; color:#dfeeff; }
-.buy{ display:inline-block; margin-top:14px; background:linear-gradient(90deg,#6fb3ff,#a3d1ff); color:#03182b; padding:10px 18px; border-radius:12px; font-weight:800; text-decoration:none; box-shadow:0 8px 30px rgba(140,200,255,0.18); cursor:pointer;}
+.buy{ display:inline-block; margin-top:14px; background:linear-gradient(90deg,#6fb3ff,#a3d1ff); color:#03182b; padding:10px 18px; border-radius:12px; font-weight:800; text-decoration:none; cursor:pointer;}
 .buy:hover{ transform:translateY(-4px); box-shadow:0 20px 40px rgba(140,200,255,0.28); }
 #cart{margin-top:30px;background:rgba(0,0,0,0.6);padding:20px;border-radius:16px;max-width:400px;margin-left:auto;margin-right:auto;color:#dfeeff;text-align:left;box-shadow:0 8px 30px rgba(120,182,255,0.15);}
 .cart-item{display:flex;justify-content:space-between;margin-bottom:6px;}
@@ -109,18 +109,21 @@ footer{ padding:18px; text-align:center; color:#bfdcff; border-top:2px solid rgb
 let cart=[];
 let total=0;
 
+// Adiciona item
 function addToCart(name,price){
   cart.push({name,price});
   total+=price;
   updateCart();
 }
 
+// Remove item
 function removeFromCart(index){
   total -= cart[index].price;
   cart.splice(index,1);
   updateCart();
 }
 
+// Atualiza carrinho
 function updateCart(){
   const items=document.getElementById('cart-items');
   items.innerHTML='';
@@ -133,11 +136,11 @@ function updateCart(){
   document.getElementById('cart-total').textContent=total.toFixed(2);
 }
 
+// Finaliza compra usando LocalStorage
 function finalize(){
   if(cart.length===0){ alert('O carrinho está vazio!'); return; }
-  const params=new URLSearchParams();
-  params.append('itens',JSON.stringify(cart));
-  window.location.href='pagamento.html?'+params.toString();
+  localStorage.setItem('kwmcCart', JSON.stringify(cart));
+  window.location.href='pagamento.html';
 }
 </script>
 </body>
