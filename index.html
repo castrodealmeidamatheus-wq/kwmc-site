@@ -1,144 +1,181 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KWMC</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; scroll-behavior: smooth; }
-  header { background: #1a237e; color: #fff; padding: 20px; text-align: center; }
-  nav { display: flex; justify-content: center; background: #303f9f; position: sticky; top: 0; z-index: 100; }
-  nav a { color: #fff; padding: 15px 20px; text-decoration: none; transition: 0.3s; }
-  nav a:hover { background: #3949ab; }
-  section { padding: 40px 20px; max-width: 900px; margin: auto; opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-  section.visible { opacity: 1; transform: translateY(0); }
-  h1, h2 { text-align: center; }
-  .product { display: flex; justify-content: space-between; align-items: center; margin: 20px 0; padding: 10px; background: #fff; border-radius: 10px; opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }
-  .product.visible { opacity: 1; transform: translateY(0); }
-  .product img { width: 120px; height: 120px; object-fit: cover; border-radius: 10px; }
-  button { padding: 10px 15px; background: #1a237e; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
-  button:hover { background: #3949ab; }
-  #cart { margin-top: 20px; background: #fff; padding: 15px; border-radius: 10px; }
-  .rules { background: #fff; padding: 20px; border-radius: 10px; line-height: 1.6; }
-  footer { text-align: center; padding: 20px; background: #303f9f; color: #fff; margin-top: 40px; }
-  a { color: #1a237e; }
-  a:hover { text-decoration: underline; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KWMC - Loja Oficial</title>
+  <style>
+    body{
+      margin:0;
+      background:#071427 url('banner-floresta-lua-azul.jpg') no-repeat top center;
+      background-size:cover;
+      color:#fff;
+      font-family:Arial, sans-serif;
+      text-align:center;
+    }
+    .menu{
+      background:rgba(0,0,0,0.55);
+      padding:12px;
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(6px);
+    }
+    .menu a{ color:#78b6ff; margin:0 12px; text-decoration:none; font-weight:700; }
+    .container{ max-width:1100px; margin:40px auto 80px; padding:0 16px; }
+    h1{ font-size:38px; text-shadow:0 0 14px #78b6ff; margin-bottom:6px; }
+    p.lead{ opacity:0.9; margin-bottom:18px; }
+
+    .vip-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:26px;
+      justify-content:center;
+      margin-top:20px;
+    }
+    .vip{
+      width:300px;
+      background:rgba(0,0,0,0.6);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 8px 30px rgba(120,182,255,0.12);
+      transition:transform .25s, box-shadow .25s;
+      text-align:center;
+    }
+    .vip:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(120,182,255,0.25); }
+    .vip img{ width:160px; height:160px; object-fit:cover; border-radius:12px; filter:drop-shadow(0 0 12px #8fc8ff); }
+    .vip-title{ font-size:22px; margin:12px 0; text-shadow:0 0 8px #78b6ff; }
+    .vip-list{ text-align:left; margin:10px auto 0; max-width:240px; line-height:1.5; color:#dfeeff; }
+    .buy{
+      display:inline-block;
+      margin-top:14px;
+      background:linear-gradient(90deg,#6fb3ff,#a3d1ff);
+      color:#03182b;
+      padding:10px 18px;
+      border-radius:12px;
+      font-weight:800;
+      text-decoration:none;
+      box-shadow:0 8px 30px rgba(140,200,255,0.18);
+      cursor:pointer;
+    }
+    .buy:hover{ transform:translateY(-4px); box-shadow:0 20px 40px rgba(140,200,255,0.28); }
+
+    #cart {
+      margin-top:30px;
+      background:rgba(0,0,0,0.6);
+      padding:20px;
+      border-radius:16px;
+      max-width:400px;
+      margin-left:auto;
+      margin-right:auto;
+      color:#dfeeff;
+      text-align:left;
+      box-shadow:0 8px 30px rgba(120,182,255,0.15);
+    }
+
+    footer{ padding:18px; text-align:center; color:#bfdcff; border-top:2px solid rgba(120,182,255,0.25); background:rgba(0,0,0,0.25); margin-top:40px; }
+    @media(max-width:760px){ .vip{ width:92%; } }
+  </style>
 </head>
 <body>
+  <div class="menu">
+    <a href="index.html">🏠 Início</a>
+    <a href="loja.html">🛒 Loja</a>
+    <a href="ranks.html">👑 Ranks</a>
+    <a href="regras.html">📜 Regras</a>
+    <a href="staff.html">👥 Staff</a>
+    <a href="https://discord.gg/zQsMSnSR7" target="_blank">🔗 Discord</a>
+  </div>
 
-<header>
-  <h1>KWMC</h1>
-  <p>Servidor KWMC – Loja oficial</p>
-</header>
+  <main class="container">
+    <h1>🌙 Loja Oficial — KWMC</h1>
+    <p class="lead">Escolha um VIP para receber vantagens exclusivas no servidor.</p>
 
-<nav>
-  <a href="#home">Principal</a>
-  <a href="#store">Loja</a>
-  <a href="#contact">Contato</a>
-  <a href="#rules">Regras</a>
-</nav>
+    <div class="vip-grid">
+      <!-- VIP FERRO -->
+      <div class="vip">
+        <img src="https://i.ibb.co/8xkQZsK/vip-ferro.png" alt="VIP Ferro">
+        <div class="vip-title">🥉 VIP Ferro</div>
+        <ul class="vip-list">
+          <li>• Kit Ferro semanal</li>
+          <li>• Prefixo exclusivo</li>
+          <li>• +1 Home</li>
+          <li>• Apoia o servidor</li>
+        </ul>
+        <div class="buy" onclick="addToCart('VIP Ferro', 10)">Comprar — R$ 10</div>
+      </div>
 
-<section id="home">
-  <h2>Bem-vindo ao KWMC</h2>
-  <p>Confira nossos produtos e serviços exclusivos para o servidor KWMC. Pagamento rápido via PIX e atendimento direto pelo Discord.</p>
-</section>
+      <!-- VIP OURO -->
+      <div class="vip">
+        <img src="https://i.ibb.co/XL6d2L6/vip-ouro.png" alt="VIP Ouro">
+        <div class="vip-title">🥈 VIP Ouro</div>
+        <ul class="vip-list">
+          <li>• Kit Ouro semanal</li>
+          <li>• +2 Homes</li>
+          <li>• Prefixo dourado</li>
+          <li>• Vantagens econômicas</li>
+        </ul>
+        <div class="buy" onclick="addToCart('VIP Ouro', 20)">Comprar — R$ 20</div>
+      </div>
 
-<section id="store">
-  <h2>Loja KWMC</h2>
-  <div class="product">
-    <img src="https://via.placeholder.com/120" alt="Produto 1">
-    <div>
-      <h3>Produto 1</h3>
-      <p>R$ 50,00</p>
-      <button onclick="addToCart('Produto 1', 50)">Adicionar ao carrinho</button>
+      <!-- VIP DIAMANTE -->
+      <div class="vip">
+        <img src="https://i.ibb.co/6D9X2rF/vip-dima.png" alt="VIP Diamante">
+        <div class="vip-title">💎 VIP Diamante</div>
+        <ul class="vip-list">
+          <li>• Kit Diamante semanal</li>
+          <li>• +4 Homes</li>
+          <li>• Título brilhante</li>
+          <li>• Acesso a áreas especiais</li>
+        </ul>
+        <div class="buy" onclick="addToCart('VIP Diamante', 35)">Comprar — R$ 35</div>
+      </div>
+
+      <!-- VIP NETHERITE -->
+      <div class="vip">
+        <img src="https://i.ibb.co/3Yc7h9L/vip-nether.png" alt="VIP Netherite">
+        <div class="vip-title">🔥 VIP Netherite</div>
+        <ul class="vip-list">
+          <li>• Kit Netherite semanal</li>
+          <li>• +6 Homes</li>
+          <li>• Título supremo</li>
+          <li>• Vantagens máximas</li>
+        </ul>
+        <div class="buy" onclick="addToCart('VIP Netherite', 50)">Comprar — R$ 50</div>
+      </div>
     </div>
-  </div>
-  <div class="product">
-    <img src="https://via.placeholder.com/120" alt="Produto 2">
-    <div>
-      <h3>Produto 2</h3>
-      <p>R$ 80,00</p>
-      <button onclick="addToCart('Produto 2', 80)">Adicionar ao carrinho</button>
+
+    <div id="cart">
+      <h2>Carrinho</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: R$ <span id="cart-total">0</span></p>
+      <p>PIX Copia e Cola: <strong>+55 21 97563‑9078</strong></p>
+      <img src="https://via.placeholder.com/150x150?text=QR+Code" alt="PIX QR Code">
     </div>
-  </div>
+  </main>
 
-  <div id="cart">
-    <h3>Carrinho</h3>
-    <ul id="cart-items"></ul>
-    <p>Total: R$ <span id="cart-total">0</span></p>
-    <p>PIX Copia e Cola: <strong>+55 21 97563‑9078</strong></p>
-    <img src="https://via.placeholder.com/150x150?text=QR+Code" alt="PIX QR Code">
-  </div>
-</section>
+  <footer>© 2025 KWMC — Todos os direitos reservados.</footer>
 
-<section id="contact">
-  <h2>Contato</h2>
-  <p>Discord: <a href="https://discord.gg/zQsMSnSR7" target="_blank">Entre no servidor KWMC</a></p>
-</section>
+  <script>
+    let cart = [];
+    let total = 0;
 
-<section id="rules">
-  <h2>Regras KWMC</h2>
-  <div class="rules">
-    <ol>
-      <li><strong>Respeito acima de tudo:</strong> Não é permitido xingamentos, ofensas ou discriminação. Evite discussões desnecessárias; se tiver problema, procure um admin.</li>
-      <li><strong>Conteúdo permitido:</strong> Apenas assuntos relacionados à loja e servidor KWMC. Nada de conteúdo adulto, ilegal ou ofensivo.</li>
-      <li><strong>Compras e pagamentos:</strong> Use apenas os métodos disponíveis: PIX ou formas autorizadas. Confira o valor total antes de pagar.</li>
-      <li><strong>Carrinho e pedidos:</strong> Não é permitido tentar burlar o sistema. Produtos comprados não podem ser revendidos sem autorização.</li>
-      <li><strong>Discord:</strong> Mantenha o respeito nos canais. Evite flood, spam ou promoção de outros servidores sem permissão.</li>
-      <li><strong>Penalidades:</strong> Violações podem levar a advertência, kick ou ban. Decisões dos administradores são finais.</li>
-      <li><strong>Responsabilidades:</strong> KWMC não se responsabiliza por danos no dispositivo do usuário. Todos são responsáveis por manter suas senhas seguras.</li>
-      <li><strong>Atualizações:</strong> Regras podem ser alteradas a qualquer momento. É responsabilidade do usuário se manter atualizado.</li>
-    </ol>
-  </div>
-</section>
+    function addToCart(name, price){
+      cart.push({name, price});
+      total += price;
+      updateCart();
+    }
 
-<footer>
-  &copy; 2025 KWMC
-</footer>
-
-<script>
-  // Carrinho
-  let cart = [];
-  let total = 0;
-
-  function addToCart(name, price) {
-    cart.push({name, price});
-    total += price;
-    updateCart();
-  }
-
-  function updateCart() {
-    const items = document.getElementById('cart-items');
-    items.innerHTML = '';
-    cart.forEach((item) => {
-      const li = document.createElement('li');
-      li.textContent = item.name + ' - R$ ' + item.price.toFixed(2);
-      items.appendChild(li);
-    });
-    document.getElementById('cart-total').textContent = total.toFixed(2);
-  }
-
-  // Efeitos de scroll/fade-in
-  const sections = document.querySelectorAll('section');
-  const products = document.querySelectorAll('.product');
-
-  function reveal() {
-    sections.forEach(sec => {
-      const top = sec.getBoundingClientRect().top;
-      const screen = window.innerHeight;
-      if(top < screen - 100) sec.classList.add('visible');
-    });
-    products.forEach(prod => {
-      const top = prod.getBoundingClientRect().top;
-      const screen = window.innerHeight;
-      if(top < screen - 100) prod.classList.add('visible');
-    });
-  }
-
-  window.addEventListener('scroll', reveal);
-  window.addEventListener('load', reveal);
-</script>
-
+    function updateCart(){
+      const items = document.getElementById('cart-items');
+      items.innerHTML = '';
+      cart.forEach(item=>{
+        const li = document.createElement('li');
+        li.textContent = item.name + ' — R$ ' + item.price.toFixed(2);
+        items.appendChild(li);
+      });
+      document.getElementById('cart-total').textContent = total.toFixed(2);
+    }
+  </script>
 </body>
 </html>
