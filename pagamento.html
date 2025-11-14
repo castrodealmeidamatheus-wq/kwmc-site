@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KWMC - Pagamento</title>
+<style>
+body{margin:0;background:#071427 url('banner-floresta-lua-azul.jpg') no-repeat top center;background-size:cover;color:white;font-family:Arial,sans-serif;text-align:center;}
+.menu{background:rgba(0,0,0,0.55);padding:12px;position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);}
+.menu a{ color:#78b6ff; margin:0 12px; text-decoration:none; font-weight:700; }
+.menu a:hover{ color:#a3d7ff; }
+.container{ max-width:600px; margin:60px auto; padding:20px; background:rgba(0,0,0,0.6); border-radius:16px; box-shadow:0 8px 30px rgba(120,182,255,0.15);}
+h1{ font-size:36px; text-shadow:0 0 12px #78b6ff;}
+p{ font-size:20px; margin:12px 0;}
+ul{list-style:none;padding:0;}
+.cart-item{display:flex;justify-content:space-between;margin-bottom:8px;}
+.remove-btn{background:#ff6b6b;color:#000;padding:2px 8px;border-radius:6px;font-weight:bold;cursor:pointer;}
+.remove-btn:hover{background:#ff4b4b;}
+.qr{margin-top:20px;}
+.copy-btn{background:#9ecbff;padding:8px 14px;border-radius:8px;font-size:14px;color:#000;cursor:pointer;font-weight:bold;text-decoration:none;}
+.copy-btn:hover{background:#cfe5ff;}
+footer{ margin-top:40px; padding:12px; border-top:2px solid #78b6ff; color:#bcd8ff;}
+</style>
+</head>
+<body>
 
+<div class="menu">
+<a href="index.html">🏠 Início</a>
+<a href="loja.html">🛒 Loja</a>
+<a href="ranks.html">👑 Ranks</a>
+<a href="regras.html">📜 Regras</a>
+<a href="staff.html">👥 Staff</a>
+<a href="https://discord.gg/zQsMSnSR7" target="_blank">🔗 Discord</a>
+</div>
+
+<div class="container">
+<h1>💳 Pagamento — KWMC</h1>
+
+<h2>Itens escolhidos:</h2>
+<ul id="item-list"></ul>
+<p>Total: R$ <span id="total-value">0</span></p>
+
+<p>PIX Copia e Cola: <strong>+55 21 97563‑9078</strong></p>
+<img class="qr" src="https://via.placeholder.com/200x200?text=QR+Code" alt="QR Code PIX">
+
+<p><span class="copy-btn" onclick="copyPIX()">Copiar PIX</span></p>
+</div>
+
+<footer>© 2025 KWMC — Todos os direitos reservados.</footer>
+
+<script>
+function copyPIX(){navigator.clipboard.writeText('+5521975639078');alert('PIX copiado!');}
+
+// Recebe os itens via URL
+const params = new URLSearchParams(window.location.search);
+let cart = [];
+if(params.get('itens')){
+  cart = JSON.parse(params.get('itens'));
+}
+
+const list = document.getElementById('item-list');
+let total = 0;
+
+// Atualiza a lista e total
+function updateCart(){
+  list.innerHTML='';
+  total=0;
+  cart.forEach((item,i)=>{
+    const li = document.createElement('li');
+    li.className='cart-item';
+    li.innerHTML = `${item.name} — R$ ${item.price.toFixed(2)} <span class="remove-btn" onclick="removeItem(${i})">Remover</span>`;
+    list.appendChild(li);
+    total += item.price;
+  });
+  document.getElementById('total-value').textContent=total.toFixed(2);
+}
+
+// Remove item do carrinho
+function removeItem(index){
+  cart.splice(index,1);
+  updateCart();
+}
+
+// Inicializa lista
+updateCart();
+</script>
+
+</body>
+</html>
