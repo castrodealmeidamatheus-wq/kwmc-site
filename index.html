@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-    <body>
-
-<div style="margin-bottom: 20px;">
-    <a href="loja.html" style="color:#4da3ff; margin: 0 10px;">Loja</a>
-    <a href="ranks.html" style="color:#4da3ff; margin: 0 10px;">Ranks</a>
-    <a href="regras.html" style="color:#4da3ff; margin: 0 10px;">Regras</a>
-    <a href="staff.html" style="color:#4da3ff; margin: 0 10px;">Staff</a>
-    <a href="discord.html" style="color:#4da3ff; margin: 0 10px;">Discord</a>
-</div>
+<!DOCTYPE html><html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,125 +6,121 @@
     <style>
         body {
             margin: 0;
-            background: #0b0e16;
+            background: #071427 url('banner-floresta-lua-azul.jpg') no-repeat top center;
+            background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
-        }
-
-        header {
-            background: #0f1523;
-            padding: 20px;
             text-align: center;
-            border-bottom: 2px solid #1d2639;
-        }
+        }/* MENU */
+    .menu {
+        background: rgba(0, 0, 0, 0.55);
+        padding: 15px;
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(6px);
+    }
 
-        header img {
-            width: 180px;
-        }
+    .menu a {
+        color: #78b6ff;
+        font-size: 20px;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
 
-        h1, h2 {
-            text-align: center;
-        }
+    .menu a:hover {
+        color: #b2d7ff;
+        text-shadow: 0 0 12px #78b6ff;
+    }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
+    /* BLOCO CENTRAL */
+    .content {
+        margin-top: 220px;
+        padding: 30px;
+        background: rgba(0,0,0,0.55);
+        border-radius: 14px;
+        display: inline-block;
+        width: 75%;
+        box-shadow: 0 0 18px #78b6ff55;
+    }
 
-        .card {
-            background: #121a2b;
-            border: 1px solid #1d2639;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
+    h1 {
+        font-size: 46px;
+        text-shadow: 0 0 15px #78b6ff;
+    }
 
-        .button {
-            display: block;
-            background: #1a57ff;
-            padding: 12px;
-            text-align: center;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
+    .btn-ip {
+        background: #78b6ff;
+        padding: 14px 26px;
+        font-size: 24px;
+        border-radius: 12px;
+        display: inline-block;
+        margin-top: 25px;
+        color: black;
+        font-weight: bold;
+    }
 
-        .doadores {
-            background: #101624;
-            padding: 10px;
-            border-radius: 8px;
-            list-style: none;
-        }
+    .btn-ip:hover {
+        background: #b2d7ff;
+        box-shadow: 0 0 18px #78b6ff;
+    }
+/* Animações e efeitos extras */
 
-        .doadores li {
-            padding: 8px;
-            border-bottom: 1px solid #1d2639;
-        }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        footer {
-            margin-top: 20px;
-            text-align: center;
-            padding: 10px;
-            color: #6c7a96;
-        }
-    </style>
+.fade { animation: fadeIn 1.2s ease forwards; }
+
+/* Partículas de luz */ .particle { position: fixed; width: 6px; height: 6px; background: #9ecbff; border-radius: 50%; top: -10px; left: calc(100% * var(--x)); opacity: 0.8; animation: fall 6s linear infinite; }
+
+@keyframes fall { from { transform: translateY(-10vh); } to { transform: translateY(110vh); } }
+
+/* Botão copiar IP */ .copy-btn { background: #9ecbff; padding: 8px 14px; border-radius: 8px; font-size: 14px; color: #000; margin-left: 10px; cursor: pointer; font-weight: bold; } .copy-btn:hover { background: #cfe5ff; }
+
+/* Cards 3D */ .content:hover { transform: translateY(-6px); transition: 0.3s; box-shadow: 0 0 25px #9ecbff88; }
+
+/* Rodapé iluminado */ footer { margin-top: 40px; padding: 12px; background: rgba(0,0,0,0.45); border-top: 2px solid #78b6ff; color: #bcd8ff; text-shadow: 0 0 6px #78b6ff; }
+
+</style>
 </head>
-<body>
-
-<header>
-    <h1>🌙 KWMC - Servidor de Minecraft</h1>
-</header>
-
-<div class="container">
-    
-    <div class="card">
-        <h2>Sobre o Servidor</h2>
-        <p>
-            O KWMC é um servidor focado em diversão, economia, combate, ranks e eventos.
-            Entre e faça parte da nossa comunidade!
-        </p>
-        <p><strong>IP do Servidor:</strong> jogar.kwmc.com.br</p>
-    </div>
-
-    <div class="card">
-        <h2>Loja</h2>
-        <p>Compre VIPs, ranks, kits e vantagens exclusivas pelo nosso site.</p>
-        <a class="button" href="#">🔗 Acessar Loja</a>
-    </div>
-
-    <div class="card">
-        <h2>Top Doadores do Mês</h2>
-        <ul class="doadores">
-            <li>1º — JogadorExemplo (R$ 150,00)</li>
-            <li>2º — PlayerVip (R$ 92,00)</li>
-            <li>3º — TrevoMC (R$ 75,00)</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>Redes Sociais</h2>
-        <p>Siga o KWMC nas redes para novidades e eventos!</p>
-        <a class="button" href="#">📸 Instagram</a>
-        <a class="button" href="#">💬 Discord</a>
-    </div>
-
-</div>
-
-<footer>
-    © 2025 KWMC - Todos os direitos reservados.
-</footer>
-
-</body>
-
-<div style="margin-bottom: 20px;">
-    <a href="loja.html" style="color:#4da3ff; margin: 0 10px;">Loja</a>
-    <a href="ranks.html" style="color:#4da3ff; margin: 0 10px;">Ranks</a>
-    <a href="regras.html" style="color:#4da3ff; margin: 0 10px;">Regras</a>
-    <a href="staff.html" style="color:#4da3ff; margin: 0 10px;">Staff</a>
-    <a href="discord.html" style="color:#4da3ff; margin: 0 10px;">Discord</a>
-</div>
+<body><!-- partículas --><script>
+for (let i = 0; i < 25; i++) {
+    let p = document.createElement('div');
+    p.className = 'particle';
+    p.style.setProperty('--x', Math.random());
+    p.style.animationDelay = (Math.random() * 6)+'s';
+    document.body.appendChild(p);
+}
+</script><div class="menu">
+    <a href="index.html">🏠 Início</a>
+    <a href="loja.html">🛒 Loja</a>
+    <a href="ranks.html">👑 Ranks</a>
+    <a href="regras.html">📜 Regras</a>
+    <a href="staff.html">👥 Staff</a>
+    <a href="discord.html">🔗 Discord</a>
+</div><div class="content fade">
+    <h1>✨ KWMC - Servidor de Minecraft ✨</h1>
+    <p>O mundo de neve mais brabo do Minecraft ❄️😈</p>
+    <div class="btn-ip">IP: jogar.kwmc.com.br <span class='copy-btn' onclick="navigator.clipboard.writeText('jogar.kwmc.com.br')">Copiar</span></div>
+</div><!-- SOBRE O SERVIDOR --><div class="content" style="margin-top:40px;">
+    <h1 style="font-size:34px;">🌙 Sobre o Servidor</h1>
+    <p>O KWMC é um servidor Survival focado em economia, guerra, ranks, eventos e uma comunidade ativa.
+       Aqui você evolui, conquista territórios e se torna lendário.</p>
+</div><!-- LOJA --><div class="content" style="margin-top:40px;">
+    <h1 style="font-size:34px;">🛒 Loja Oficial</h1>
+    <p>Adquira VIPs, kits, coins e vantagens exclusivas para fortalecer sua jornada.</p>
+    <a class="btn-ip" style="display:inline-block; margin-top:10px;" href="loja.html">Acessar Loja</a>
+</div><!-- TOP DOADORES --><div class="content" style="margin-top:40px;">
+    <h1 style="font-size:34px;">🏆 Top Doadores do Mês</h1>
+    <p>Os jogadores que mantêm o KWMC vivo e forte!</p>
+    <ul style="list-style:none; padding:0; font-size:20px;">
+        <li>🥇 <b>JogadorExemplo</b> — R$ 150,00</li>
+        <li>🥈 <b>PlayerVip</b> — R$ 92,00</li>
+        <li>🥉 <b>TrevoMC</b> — R$ 75,00</li>
+    </ul>
+</div><!-- REDES SOCIAIS --><div class="content" style="margin-top:40px; margin-bottom:60px;">
+    <h1 style="font-size:34px;">📡 Redes Sociais</h1>
+    <p>Fique por dentro das novidades, eventos e anúncios!</p>
+    <a class="btn-ip" style="display:inline-block; margin:10px;" href="#">Instagram</a>
+    <a class="btn-ip" style="display:inline-block; margin:10px;" href="#">Discord</a>
+</div></body>
 </html>
-
