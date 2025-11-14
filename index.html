@@ -1,186 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KWMC - Loja Oficial</title>
-
-<style>
-    body {
-        margin: 0;
-        background: #071427 url('banner-floresta-lua-azul.jpg') no-repeat center top;
-        background-size: cover;
-        font-family: Arial, sans-serif;
-        color: white;
-        text-align: center;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KWMC - Loja Oficial</title>
+  <style>
+    body{
+      margin:0;
+      background:#071427 url('banner-floresta-lua-azul.jpg') no-repeat top center;
+      background-size:cover;
+      color:#fff;
+      font-family:Arial, sans-serif;
+      text-align:center;
     }
-
-    /* MENU */
-    .menu {
-        background: rgba(0, 0, 0, 0.55);
-        padding: 15px;
-        position: sticky;
-        top: 0;
-        backdrop-filter: blur(6px);
-        z-index: 10;
+    .menu{
+      background:rgba(0,0,0,0.55);
+      padding:12px;
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter:blur(6px);
     }
+    .menu a{ color:#78b6ff; margin:0 12px; text-decoration:none; font-weight:700; }
+    .container{ max-width:1100px; margin:40px auto 80px; padding:0 16px; }
+    h1{ font-size:38px; text-shadow:0 0 14px #78b6ff; margin-bottom:6px; }
+    p.lead{ opacity:0.9; margin-bottom:18px; }
 
-    .menu a {
-        color: #78b6ff;
-        font-size: 20px;
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: bold;
+    .vip-grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:26px;
+      justify-content:center;
+      margin-top:20px;
     }
-
-    .menu a:hover {
-        color: #b2d7ff;
-        text-shadow: 0 0 12px #78b6ff;
+    .vip{
+      width:300px;
+      background:rgba(0,0,0,0.6);
+      border-radius:16px;
+      padding:18px;
+      box-shadow:0 8px 30px rgba(120,182,255,0.12);
+      transition:transform .25s, box-shadow .25s;
+      text-align:center;
     }
-
-    /* TÍTULOS */
-    h1 {
-        font-size: 42px;
-        margin-top: 40px;
-        text-shadow: 0 0 18px #78b6ff;
+    .vip:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(120,182,255,0.25); }
+    .vip img{ width:160px; height:160px; object-fit:cover; border-radius:12px; filter:drop-shadow(0 0 12px #8fc8ff); }
+    .vip-title{ font-size:22px; margin:12px 0; text-shadow:0 0 8px #78b6ff; }
+    .vip-list{ text-align:left; margin:10px auto 0; max-width:240px; line-height:1.5; color:#dfeeff; }
+    .buy{
+      display:inline-block;
+      margin-top:14px;
+      background:linear-gradient(90deg,#6fb3ff,#a3d1ff);
+      color:#03182b;
+      padding:10px 18px;
+      border-radius:12px;
+      font-weight:800;
+      text-decoration:none;
+      box-shadow:0 8px 30px rgba(140,200,255,0.18);
     }
+    .buy:hover{ transform:translateY(-4px); box-shadow:0 20px 40px rgba(140,200,255,0.28); }
 
-    /* CONTAINER VIPS */
-    .vip-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-        margin-top: 40px;
-        padding-bottom: 60px;
-    }
-
-    /* CARD VIP */
-    .vip-card {
-        width: 300px;
-        background: rgba(0,0,0,0.60);
-        padding: 20px;
-        border-radius: 18px;
-        box-shadow: 0 0 20px #78b6ff55;
-        transition: 0.3s;
-    }
-
-    .vip-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 0 26px #9ecbffcc;
-    }
-
-    .vip-img {
-        width: 160px;
-        margin-bottom: 18px;
-        filter: drop-shadow(0 0 10px #8fc8ff);
-    }
-
-    .vip-title {
-        font-size: 28px;
-        margin-bottom: 10px;
-        text-shadow: 0 0 10px #78b6ff;
-    }
-
-    .vip-benefits {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-top: 10px;
-    }
-
-    /* BOTÃO AZUL-LUA */
-    .buy-btn {
-        margin-top: 18px;
-        display: inline-block;
-        background: linear-gradient(to right, #6fb3ff, #a3d1ff);
-        padding: 12px 22px;
-        border-radius: 14px;
-        color: #03182b;
-        font-weight: bold;
-        font-size: 18px;
-        box-shadow: 0 0 16px #8fc8ff88;
-        transition: 0.3s;
-    }
-
-    .buy-btn:hover {
-        background: linear-gradient(to right, #a3d1ff, #c4e2ff);
-        box-shadow: 0 0 24px #b6dcff;
-        transform: translateY(-5px);
-    }
-
-</style>
+    footer{ padding:18px; text-align:center; color:#bfdcff; border-top:2px solid rgba(120,182,255,0.25); background:rgba(0,0,0,0.25); margin-top:40px; }
+    @media(max-width:760px){ .vip{ width:92%; } }
+  </style>
 </head>
 <body>
-
-<!-- MENU -->
-<div class="menu">
+  <div class="menu">
     <a href="index.html">🏠 Início</a>
     <a href="loja.html">🛒 Loja</a>
     <a href="ranks.html">👑 Ranks</a>
     <a href="regras.html">📜 Regras</a>
     <a href="staff.html">👥 Staff</a>
-    <a href="discord.html">🔗 Discord</a>
-</div>
+    <a href="https://discord.gg/zQsMSnSR7" target="_blank">🔗 Discord</a>
+  </div>
 
-<h1>🌙 Loja Oficial KWMC</h1>
-<p style="font-size:18px;">Escolha o VIP perfeito para sua jornada no mundo congelado ❄️😈</p>
+  <main class="container">
+    <h1>🌙 Loja Oficial — KWMC</h1>
+    <p class="lead">Escolha um VIP para receber vantagens exclusivas no servidor.</p>
 
-<!-- VIPS -->
-<div class="vip-container">
-
-    <!-- VIP FERRO -->
-    <div class="vip-card">
-        <img src="https://i.imgur.com/6Y0uP5X.png" class="vip-img">
+    <div class="vip-grid">
+      <!-- VIP FERRO -->
+      <div class="vip">
+        <img src="https://i.ibb.co/8xkQZsK/vip-ferro.png" alt="VIP Ferro">
         <div class="vip-title">🥉 VIP Ferro</div>
-        <div class="vip-benefits">
-            • Kit Ferro semanal<br>
-            • Prefixo exclusivo<br>
-            • +1 Home<br>
-            • Apoia o servidor 💙
-        </div>
-        <a class="buy-btn" href="#">Comprar — R$ 10</a>
-    </div>
+        <ul class="vip-list">
+          <li>• Kit Ferro semanal</li>
+          <li>• Prefixo exclusivo</li>
+          <li>• +1 Home</li>
+          <li>• Apoia o servidor</li>
+        </ul>
+        <a class="buy" href="#">Comprar — R$ 10</a>
+      </div>
 
-    <!-- VIP OURO -->
-    <div class="vip-card">
-        <img src="https://i.imgur.com/4k6HcIv.png" class="vip-img">
+      <!-- VIP OURO -->
+      <div class="vip">
+        <img src="https://i.ibb.co/XL6d2L6/vip-ouro.png" alt="VIP Ouro">
         <div class="vip-title">🥈 VIP Ouro</div>
-        <div class="vip-benefits">
-            • Kit Ouro semanal<br>
-            • +2 Homes<br>
-            • Prefixo dourado ✨<br>
-            • Vantagens extras na economia
-        </div>
-        <a class="buy-btn" href="#">Comprar — R$ 20</a>
-    </div>
+        <ul class="vip-list">
+          <li>• Kit Ouro semanal</li>
+          <li>• +2 Homes</li>
+          <li>• Prefixo dourado</li>
+          <li>• Vantagens econômicas</li>
+        </ul>
+        <a class="buy" href="#">Comprar — R$ 20</a>
+      </div>
 
-    <!-- VIP DIAMANTE -->
-    <div class="vip-card">
-        <img src="https://i.imgur.com/6WXTKL0.png" class="vip-img">
+      <!-- VIP DIAMANTE -->
+      <div class="vip">
+        <img src="https://i.ibb.co/6D9X2rF/vip-dima.png" alt="VIP Diamante">
         <div class="vip-title">💎 VIP Diamante</div>
-        <div class="vip-benefits">
-            • Kit Diamante semanal<br>
-            • +4 Homes<br>
-            • Título brilhante 💎<br>
-            • Acesso a áreas especiais
-        </div>
-        <a class="buy-btn" href="#">Comprar — R$ 35</a>
-    </div>
+        <ul class="vip-list">
+          <li>• Kit Diamante semanal</li>
+          <li>• +4 Homes</li>
+          <li>• Título brilhante</li>
+          <li>• Acesso a áreas especiais</li>
+        </ul>
+        <a class="buy" href="#">Comprar — R$ 35</a>
+      </div>
 
-    <!-- VIP NETHERITE -->
-    <div class="vip-card">
-        <img src="https://i.imgur.com/v7Hy2lT.png" class="vip-img">
+      <!-- VIP NETHERITE -->
+      <div class="vip">
+        <img src="https://i.ibb.co/3Yc7h9L/vip-nether.png" alt="VIP Netherite">
         <div class="vip-title">🔥 VIP Netherite</div>
-        <div class="vip-benefits">
-            • Kit Netherite semanal<br>
-            • +6 Homes<br>
-            • Título supremo 😈<br>
-            • Vantagens máximas no KWMC
-        </div>
-        <a class="buy-btn" href="#">Comprar — R$ 50</a>
+        <ul class="vip-list">
+          <li>• Kit Netherite semanal</li>
+          <li>• +6 Homes</li>
+          <li>• Título supremo</li>
+          <li>• Vantagens máximas</li>
+        </ul>
+        <a class="buy" href="#">Comprar — R$ 50</a>
+      </div>
     </div>
+  </main>
 
-</div>
-
+  <footer>© 2025 KWMC — Todos os direitos reservados.</footer>
 </body>
 </html>
